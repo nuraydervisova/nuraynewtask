@@ -1,0 +1,7 @@
+list = [1, 4, 2, 9, 2, 4, 5, 12, 78, 90, 100]
+print(list[1:4])
+print(list[5:])
+print(list[:7])
+print(list[0:10])
+print(list[:-1])
+print(list[-1: -5])

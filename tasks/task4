@@ -1,0 +1,11 @@
+a = int(input("enter the number one: "))
+b = int(input("enter the number two: "))
+c = int(input("enter the number three: "))
+d = int(input("enter the number four: "))
+e = int(input("enter the number five: "))
+
+biggest = max(a, b, c, d, e)
+smallest = min(a, b, c, d, e)
+
+print("The biggest number", biggest)
+print("The smallest number", smallest)

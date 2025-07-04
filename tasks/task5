@@ -1,0 +1,7 @@
+import random
+true = random.randint(1, 11)
+guess = int(input("number from 1 to 11: "))
+if  guess == true:
+    print("congratulations are true! ")
+else:
+    print("wrong! correct answer: ", 10)
