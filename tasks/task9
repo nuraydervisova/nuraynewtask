@@ -1,0 +1,15 @@
+class Heyvan:
+    def __init__(self, ad):
+        self.ad = ad
+    def ses(self):
+        print(f"{self.ad} ses cixarir.")
+
+class Pisik(Heyvan):
+    def ses(self):
+        print("Mia miyoldayir. ")
+    def oynayir(self):
+        print(f"{self.ad} Mia oyun oynayir")
+Heyvan1 = Heyvan("cat")
+Heyvan1.ses()
+pisik1 = Pisik("Mia")
+pisik1.oynayir()
