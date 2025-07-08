@@ -1,0 +1,28 @@
+while True:
+    print("""
+    [0] Exit
+    [1] Add
+    [2] Subtract
+    [3] Multiply
+    """)
+    choice = int(input("Option: "))
+    if choice == 0:
+        break
+    elif choice == 3:
+        a = int(input("Number one: "))
+        b = int(input("Number two: "))
+        c = a + b
+        print(f"{a} + {b} = {c}")
+        
+    elif choice == 4:
+        a = int(input("Number one: "))
+        b = int(input("Number two: "))
+        c = a - b
+        print(f"{a} - {b} = {c}")
+    elif choice == 5:
+        a = int(input("Number one: "))
+        b = int(input("Number two: "))
+        c = a * b
+        print(f"{a} * {b} = {c}")
+    else:
+        print("Invalid option")
