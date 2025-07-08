@@ -1,0 +1,15 @@
+try:
+    num1 = int(input("Number one: "))
+    num2 = int(input("Number two: "))
+    num3 = num1 / num2
+    print(num3)
+except ZeroDivisionError:
+    print("Cannot be zero, enter a new number: ")
+except ValueError:
+    print("Just enter a number: ")
+except:
+    print("Unknown error: ")
+else:
+    print("This command works: ")
+finally:
+    print("This command works: ")
