@@ -1,0 +1,22 @@
+def add(a, b):
+    return a + b
+
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return "Cannot divide by zero"
+    else:
+        return a / b
+
+a = float(input("Enter the first number: "))
+b = float(input("Enter the second number: "))
+
+print("Addition result:", add(a, b))
+print("Subtraction result:", subtract(a, b))
+print("Multiplication result:", multiply(a, b))
+print("Division result:", divide(a, b))
