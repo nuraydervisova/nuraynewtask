@@ -1,0 +1,29 @@
+small_pizza = 25
+medium_pizza = 30
+large_pizza = 35
+small_cheese_extra = 2
+large_cheese_extra = 3
+drink_extra = 2
+print("Welcome to the New Pizza...")
+size = input("Which size pizza would you like? (S, M, L): ").upper()
+total_cost = 0
+if size == "S":
+    total_cost += small_pizza
+elif size == "M":
+    total_cost += medium_pizza
+elif size == "L":
+    total_cost += large_pizza
+else:
+    print("Invalid size selection. Please choose 'S', 'M', or 'L'.")
+    exit()
+extra_cheese = input("Would you like extra cheese? (Yes or No): ").lower()
+
+if extra_cheese == "yes":
+    if size == "S":
+        total_cost += small_cheese_extra
+    else:
+        total_cost += large_cheese_extra
+drink = input("Would you like a drink? (Yes or No): ").lower()
+if drink == "yes":
+    total_cost += drink_extra
+print(f"Total cost: {total_cost} AZN.")
