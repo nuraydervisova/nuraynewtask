@@ -1,0 +1,20 @@
+import random
+
+print("Good luck!")
+a = random.randint(1, 100)
+chance_count = 5
+
+while True:
+    x = int(input("Enter your guess: "))
+    if x == a:
+        print("Congratulations! Correct.")
+        break
+    elif x < a:
+        print("Enter a larger number: ")
+    else:
+        print("Enter a smaller number: ")
+
+    chance_count -= 1
+    if chance_count == 0:
+        print("Out of chances! The correct answer was:", a)
+        break
