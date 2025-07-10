@@ -1,0 +1,9 @@
+numbers = [1, 2, 3, 5, 11, 7, 8, 9, 45, 46, 41, 55]
+
+total = 0
+
+for num in numbers:
+    total += num
+
+count = len(numbers)
+print(total / count)
