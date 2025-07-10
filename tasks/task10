@@ -1,0 +1,12 @@
+import time
+
+def geri_sayim():
+    saniye = int(input("reqem yaz ; "))
+    print("Geri sayım başlıyır:")
+    while saniye > 0:
+        print(saniye, end="...", flush=True)
+        time.sleep(1)
+        saniye -= 1
+    print("\nZaman doldu!")
+
+geri_sayim()
