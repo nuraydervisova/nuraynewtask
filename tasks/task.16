@@ -1,0 +1,64 @@
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+        self.is_borrowed = False
+    def __str__(self):
+        status = "Borc verilib:" if self.is_borrowed else "Movcuddur:"
+        return f"{self.title} - {self.author} ({status})"
+class Library(Book):
+    def __init__(self, name):
+        self.name = name
+        self.books = []
+    def add_book(self, title, author):
+        book = Book(title, author)
+        self.books.append(book)
+        print(f"Kitab elave olundu: {book}")
+    def display_book(self):
+        print(f"{self.name} Kitabxanasi:")
+        for book in self.books:
+            print(book)
+    def borrowed_book(self, title):
+        for book in self.books:
+            if book.title.lower() == title.lower() and not book.is_borrowed:
+                book.is_borrowed = True
+                print(f"Kitab borc verildi: {book}")
+                return
+            print(f"Kitab movcud deyil ve artiq borc verilib.")
+    def return_book(self, title):
+        for book in self.books:
+            if book.title.lower() == title.lower()  and book.is_borrowed:
+                book.is_borrowed == False
+                print(f"Kitab geri alindi: {book}")
+                return
+        print(f"BU adda borc verilmis kitab tapilmadi. ")
+def main():
+    library = Library("Smart Library")
+    while True:
+        print("\n1. Kitab elave et")
+        print("2. Kitab goster")
+        print("3. Kitabi borc al")
+        print("4. Kitabi geri qaytar")
+        print("5. Cixis")
+        choice = input("Seciminizi edin: ")
+        if choice == "1":
+            title = input("Kitabin basligini daxil edin: ")
+            author = input("Kitabin yazarini daxil et: ")
+            library.add_book(title, author)
+        elif choice == "2":
+            library.display_book()
+            print("Borc verilib:")
+        elif choice == "3":
+            title = input("Borc almaq istediyiniz kitbin adini daxil edin: ")
+            library.borrowed_book(title)
+        elif choice == "4":
+                title = input("Geri qaytarmaq istediyiniz kitabi daxil edin: ")
+                library.return_book(title)
+        elif choice == "5":
+            print("Cixarilir...")
+            break
+        else:
+            print("Yalnis secim yeniden cehd edin.")
+                
+if __name__ == "__main__":
+    main()
