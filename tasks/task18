@@ -1,0 +1,58 @@
+class Kitab:
+    def __init__(self, ad, muellif, il):
+        self.ad = ad            
+        self.muellif = muellif  
+        self.il = il            
+
+    def melumat_goster(self):
+        print(f"'{self.ad}' müəllifi: {self.muellif} ({self.il})")
+
+class Kitabxana(Kitab):
+    def __init__(self):
+        self.kitablar = []  
+
+    def kitab_elave_et(self, kitab):
+        self.kitablar.append(kitab)
+        print(f"'{kitab.ad}' kitabı kitabxanaya əlavə olundu.")
+
+    def kitab_sil(self, ad):
+        for kitab in self.kitablar:
+            if kitab.ad == ad:
+                self.kitablar.remove(kitab)
+                print(f"'{ad}' kitabı kitabxanadan silindi.")
+                return
+        print(f"'{ad}' adlı kitab tapılmadı.")
+
+    def muellif_uzre_axtar(self, muellif):
+        tapilanlar = [kitab for kitab in self.kitablar if kitab.muellif == muellif]
+        if tapilanlar:
+            print(f"{muellif} müəllifinin kitabları:")
+            for kitab in tapilanlar:
+                kitab.melumat_goster()
+        else:
+            print(f"{muellif} müəllifinə aid kitab tapılmadı.")
+
+    def butun_kitablari_goster(self):
+        if not self.kitablar:
+            print("Kitabxana boşdur.")
+        else:
+            print("Kitabxanadakı bütün kitablar:")
+            for kitab in self.kitablar:
+                kitab.melumat_goster()
+
+
+
+kitabxana = Kitabxana()
+
+kitab1 = Kitab("1984", "Corc Orvell", 1949)
+kitab2 = Kitab("Heyvanlar Ferması", "Corc Orvell", 1945)
+kitab3 = Kitab("Cəsur Yeni Dünya", "Aldous Huxley", 1932)
+
+kitabxana.kitab_elave_et(kitab1)
+kitabxana.kitab_elave_et(kitab2)
+kitabxana.kitab_elave_et(kitab3)
+
+kitabxana.butun_kitablari_goster()
+kitabxana.muellif_uzre_axtar("Corc Orvell")
+kitabxana.kitab_sil("1984")
+kitabxana.butun_kitablari_goster()

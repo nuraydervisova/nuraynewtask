@@ -1,0 +1,42 @@
+class Restoran:
+    def __init__(self):
+        self.menyu = {
+            "1": {"ad": "Plov", "qiymet": 5.0},
+            "2": {"ad": "Dolma", "qiymet": 7.0},
+            "3": {"ad": "Kabab", "qiymet": 10.0},
+            "4": {"ad": "Şorba", "qiymet": 3.5}
+        }
+        self.sifaris = []
+
+    def menyunu_goster(self):
+        print("Menyu:")
+        for kod, mehsul in self.menyu.items():
+            print(f"{kod}. {mehsul['ad']} - {mehsul['qiymet']} AZN")
+
+    def sifaris_et(self):
+        while True:
+            self.menyunu_goster()
+            secim = input("Sifariş vermək istədiyiniz yeməyin nömrəsini daxil edin (çıxmaq üçün 'q'): ")
+            if secim.lower() == 'q':
+                break
+            elif secim in self.menyu:
+                say = int(input("Neçə porsiya istəyirsiniz? "))
+                self.sifaris.append({"ad": self.menyu[secim]["ad"], "say": say, "qiymet": self.menyu[secim]["qiymet"]})
+                print(f"{say} porsiya {self.menyu[secim]['ad']} əlavə olundu.")
+            else:
+                print("Yanlış seçim, zəhmət olmasa yenidən cəhd edin.")
+
+    def hesab_hesabla(self):
+        toplam = 0
+        print("\nSifarişiniz:")
+        for mehsul in self.sifaris:
+            qiymet = mehsul["say"] * mehsul["qiymet"]
+            print(f"{mehsul['ad']} x {mehsul['say']} = {qiymet} AZN")
+            toplam += qiymet
+        print(f"Ümumi hesab: {toplam} AZN")
+
+
+
+restoran = Restoran()
+restoran.sifaris_et()
+restoran.hesab_hesabla()

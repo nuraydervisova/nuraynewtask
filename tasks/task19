@@ -1,0 +1,31 @@
+class BankHesabi:
+    def __init__(self, sahibi, balans=0):
+        self.sahibi = sahibi      
+        self.balans = balans      
+
+    def pul_yatir(self, miqdar):
+        if miqdar > 0:
+            self.balans += miqdar
+            print(f"{miqdar} manat hesabınıza yatdırıldı. Yeni balans: {self.balans} manat.")
+        else:
+            print("Yatırılan məbləğ müsbət olmalıdır.")
+
+    def pul_cixar(self, miqdar):
+        if miqdar > self.balans:
+            print("Balansda kifayət qədər vəsait yoxdur!")
+        elif miqdar <= 0:
+            print("Çıxarılan məbləğ müsbət olmalıdır.")
+        else:
+            self.balans -= miqdar
+            print(f"{miqdar} manat çıxarıldı. Qalan balans: {self.balans} manat.")
+
+    def balans_goster(self):
+        print(f"{self.sahibi} adlı şəxsin hesab balansı: {self.balans} manat.")
+
+
+
+hesab = BankHesabi("Leyla", 1000)
+hesab.balans_goster()
+hesab.pul_yatir(500)
+hesab.pul_cixar(200)
+hesab.pul_cixar(1500)
